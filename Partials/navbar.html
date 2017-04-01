@@ -1,0 +1,28 @@
+<nav class="navbar navbar-blue navbar-toggleable-md navbar-light bg-faded">
+    <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse"
+            data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false"
+            aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+        <ul class="navbar-nav">
+            <li class="nav-item dropdown" ng-class="{show:isMenuVisible()}">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink"
+                   data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"
+                   ng-mouseover="setVisibleMenu(true)" ng-mouseleave="setVisibleMenu(false)">
+                    Cadastros
+                </a>
+                <div ng-show="isMenuVisible()" class="show dropdown-menu"
+                     aria-labelledby="navbarDropdownMenuLink" ng-mouseover="setVisibleSubMenu(true)"
+                     ng-mouseleave="setVisibleSubMenu(false)">
+                    <a class="dropdown-item" href="#">Manter Produto</a>
+                    <a class="dropdown-item" href="#">Efetuar Pedido</a>
+                </div>
+            </li>
+
+            <li class="nav-item">
+                <a class="nav-link" href="#">Help</a>
+            </li>
+        </ul>
+    </div>
+</nav>
