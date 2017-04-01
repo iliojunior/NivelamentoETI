@@ -22,7 +22,7 @@
             })
             .when("/produto/lista", {
                 templateUrl: 'Produto/listarProdutos.html',
-                controller: 'Produto/listarProdutos.js'
+                controller: 'ListarProdutosController'
             });
     }
 
