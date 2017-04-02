@@ -7,6 +7,7 @@
 
     function ListarProdutosController($scope, produtoService) {
         $scope.produtos = produtoService.get();
+        $scope.search = "";
     }
 
 })();

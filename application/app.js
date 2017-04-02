@@ -23,6 +23,17 @@
             .when("/produto/lista", {
                 templateUrl: 'Produto/listarProdutos.html',
                 controller: 'ListarProdutosController'
+            })
+            .when("/produto/create", {
+                templateUrl: 'Produto/createProdutos.html',
+                controller: 'CreateProdutoController'
+            })
+            .when("/produto/edit/:codigo", {
+                templateUrl: 'Produto/createProdutos.html',
+                controller: 'CreateProdutoController'
+            })
+            .otherwise({
+                redirectTo: '/produto/lista'
             });
     }
 

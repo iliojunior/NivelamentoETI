@@ -8,7 +8,7 @@
         </div>
 
         <div class="col-auto">
-            <a href="javascript:void(0)" class="btn blue">Novo</a>
+            <a href="#!/produto/create" class="btn blue">Novo</a>
         </div>
 
     </div>
@@ -18,17 +18,23 @@
         <thead class="blue">
         <tr>
             <th colspan="1">Código</th>
-            <th>Nome</th>
+            <th colspan="5">Nome</th>
             <th colspan="2">Preço</th>
             <th colspan="2">Ações</th>
         </tr>
         </thead>
         <tbody>
-        <tr ng-repeat="item in produtos">
+        <tr ng-repeat="item in produtos | orderBy:'codigo' | filter:{nome:search}">
             <th colspan="1" scope="row">{{item.codigo}}</th>
-            <td>{{item.nome}}</td>
+            <td colspan="5">{{item.nome}}</td>
             <td colspan="2">{{item.preco | currency}}</td>
-            <td colspan="2">E D</td>
+            <td colspan="2">
+                <a href="#!/produto/edit/{{item.codigo}}">
+                    <i class="fa fa-pencil"></i>
+                </a>
+                <a href="#">
+                    <i class="fa fa-close"></i>
+                </a></td>
         </tr>
         </tbody>
     </table>
