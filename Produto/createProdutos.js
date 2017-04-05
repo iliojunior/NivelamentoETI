@@ -4,7 +4,7 @@
 
     angular
         .module('appNivelamento')
-        .controller('CreateProdutoController', ['$scope', '$routeParams', 'produtoService', CreateProdutoController]);
+        .controller('CreateProdutoController', ['$scope', '$location', '$routeParams', 'produtoService', CreateProdutoController]);
 
     function isNumber(n) {
         return !isNaN(parseFloat(n)) && isFinite(n);
@@ -14,7 +14,7 @@
         return (typeof value !== 'undefined');
     }
 
-    function CreateProdutoController($scope, $routeParams, produtoService) {
+    function CreateProdutoController($scope, $location, $routeParams, produtoService) {
         $scope.produto = {};
         $scope.isNew = !$scope.isEdit;
         $scope.formularioInvalido = false;
@@ -43,7 +43,6 @@
         }
 
         function salvarProduto(produto, $event) {
-
             if (isDefined(produto) && cadastroIsValido(produto)) {
 
                 $scope.codigo = parseInt(produto.codigo);
@@ -52,13 +51,10 @@
                 produtoService.save(produto);
                 alert("Produto salvo com sucesso!");
 
-                return true;
+                $location.path("#!/produto/lista");
             }
-
             $event.preventDefault();
-
         }
-
     }
 
 })();
