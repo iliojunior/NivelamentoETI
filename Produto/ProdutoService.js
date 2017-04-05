@@ -44,16 +44,23 @@
         }
 
         function exists(produto) {
-            var exist = false;
+            return get()
+                    .filter(function (item) {
+                        return (item === produto);
+                    }).length > 0;
+        }
 
-            get().forEach(function (item) {
-                exist = (item === produto);
-            });
-
-            return exist;
+        function existKey(key) {
+            return get()
+                    .filter(function (item) {
+                        return (item.codigo === key);
+                    }).length > 0;
         }
 
         function save(novoProduto) {
+            novoProduto.codigo = parseInt(novoProduto.codigo);
+            novoProduto.preco = parseFloat(novoProduto.preco);
+
             if (!exists(novoProduto))
                 add(novoProduto);
 
@@ -64,6 +71,7 @@
             get: get,
             save: save,
             exists: exists,
+            existKey: existKey,
         };
 
         return factory;

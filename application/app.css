@@ -36,3 +36,11 @@ a.blue:hover {
     padding-right: 15px;
     padding-left: 15px;
 }
+
+input.invalid {
+    border-color: #d9534f;
+}
+
+span.invalid {
+    color: #d9534f;
+}

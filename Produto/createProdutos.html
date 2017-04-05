@@ -1,20 +1,22 @@
 <div class="container">
-    <form action="#!/produto/lista" ng-submit="salvarProduto(produto)" class="mt-2">
+    <form action="#!/produto/lista" ng-submit="salvarProduto(produto, $event)" class="mt-2" name="formProduto">
         <div class="form-inline">
 
-            <input type="text" ng-model="produto.codigo" class="form-control mr-2 col-2" placeholder="Código">
+            <input type="number" name="codigo" ng-model="produto.codigo" class="form-control mr-2 col-2"
+                   placeholder="Código" ng-class="{invalid:produto.codigoIsInvalid}">
 
-            <input type="text" ng-model="produto.nome" class="form-control col" placeholder="Nome">
+            <input type="text" ng-model="produto.nome" class="form-control col" placeholder="Nome"
+                   ng-class="{invalid:produto.nomeIsInvalid}">
 
-            <input type="text" ng-model="produto.preco" class="form-control ml-2 col-2" placeholder="Preço">
+            <input type="number" step="any" ng-model="produto.preco" class="form-control ml-2 col-2" placeholder="Preço"
+                   ng-class="{invalid:produto.precoIsInvalid}">
 
         </div>
 
-        <div class="mt-2 col-12 pr-0">
+        <div class="mt-2 pr-0">
             <button class="btn float-right blue col-2" type="submit">Salvar</button>
+            <span class="float-right mr-2 invalid" ng-show="formularioInvalido">Dados incorreto(s)</span>
         </div>
 
     </form>
-
-    {{test}}
 </div>
