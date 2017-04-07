@@ -32,6 +32,18 @@
                 templateUrl: 'Produto/createProdutos.html',
                 controller: 'CreateProdutoController'
             })
+            .when("/pedido/lista", {
+                templateUrl: 'Pedido/listarPedidos.html',
+                controller: 'ListarPedidosController'
+            })
+            .when("/pedido/create", {
+                templateUrl: 'Pedido/createPedidos.html',
+                controller: 'CreatePedidoController'
+            })
+            .when("/pedido/create/:numero", {
+                templateUrl: 'Pedido/createPedidos.html',
+                controller: 'CreatePedidoController'
+            })
             .otherwise({
                 redirectTo: '/produto/lista'
             });
@@ -60,3 +72,11 @@
     }
 
 })();
+
+function isNumber(n) {
+    return !isNaN(parseFloat(n)) && isFinite(n);
+}
+
+function isDefined(value) {
+    return (typeof value !== 'undefined');
+}

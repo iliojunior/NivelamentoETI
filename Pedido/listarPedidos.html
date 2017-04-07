@@ -1,0 +1,38 @@
+<div class="container">
+    <div class="row-clearfix"></div>
+    <div class="row">
+
+        <div class="col">
+            <input type="text" name="search" ng-model="search" class="form-control placeholder-awesome"
+                   placeholder="&#xf002; Search"/>
+        </div>
+
+        <div class="col-auto">
+            <a href="#!/pedido/create" class="btn blue">Novo</a>
+        </div>
+
+    </div>
+    <div class="row-clearfix"></div>
+    <table class="table table-hover col-12">
+        <thead class="blue">
+        <tr>
+            <th colspan="1">Número</th>
+            <th colspan="5">Emissão</th>
+            <th colspan="2">Total</th>
+            <th colspan="2">Ações</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr ng-repeat="pedido in pedidos | orderBy:'numero' | filter:{nome:search}">
+            <th colspan="1" scope="row">{{pedido.numero}}</th>
+            <td colspan="5">{{formatData(pedido.emissao)}}</td>
+            <td colspan="2">R{{pedido.total | currency}}</td>
+            <td colspan="2">
+                <a href="" ng-click="deletarProduto(item)">
+                    Excluir
+                </a>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+</div>

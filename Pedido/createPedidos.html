@@ -1,0 +1,89 @@
+<div class="container">
+    <form class="mt-2" name="formPedido">
+        <div class="d-flex justify-content-between">
+
+            <div class="form-group d-block justify-content-start col">
+                <label for="numero">Número</label>
+                <input type="number" name="numero" id="numero" ng-model="pedido.numero" class="form-control"
+                       placeholder="Número" ng-class="{invalid:pedido.numeroIsInvalid}">
+            </div>
+
+            <div class="form-group d-block justify-content-start col">
+                <label for="emissao">Emissão</label>
+                <input type="date" name="emissao" id="emissao" ng-model="pedido.emissao" class="form-control"
+                       placeholder="Emissão"
+                       ng-class="{invalid:pedido.emissaoIsInvalid}">
+            </div>
+
+            <div class="form-group d-block justify-content-start col">
+                <label for="total">Total</label>
+                <input type="number" step="any" name="total" id="total" ng-model="pedido.total"
+                       class="form-control"
+                       placeholder="Total" readonly>
+            </div>
+
+        </div>
+    </form>
+
+    <div class="col">
+        <div class="dropdown-divider"></div>
+    </div>
+
+    <form class="mt-2" name="formAddProdutos">
+        <div class="d-flex justify-content-between">
+
+            <div class="form-group d-block col">
+                <label for="novoItemProduto">Produto</label>
+                <input type="text"
+                       ng-change="pesquisarProduto()"
+                       ng-model="pesquisaProduto"
+                       id="novoItemProduto"
+                       name="novoItemProduto"
+                       placeholder="Produto..."
+                       class="form-control">
+
+                <div id="listagemProdutos">
+                    <a href="javascript:void(0)"
+                       ng-click="selecionarProduto(produto)"
+                       ng-repeat="produto in pesquisaProdutos | filter: pesquisaProdutos">{{produto.nome}}</a>
+                </div>
+            </div>
+
+            <div class="form-group d-block col">
+                <label for="novoItemQuantidade">Quantidade</label>
+                <input class="form-control" type="number" id="novoItemQuantidade" name="novoItemQuantidade" step="any"
+                       ng-model="novoItem.quantidade" placeholder="Quantidade">
+            </div>
+
+            <div class="form-group d-block col">
+                <label for="novoItemPreco">Preço</label>
+                <input class="form-control" type="number" id="novoItemPreco" name="novoItemPreco" step="any"
+                       ng-model="novoItem.preco"
+                       placeholder="Preço">
+            </div>
+
+            <div class="form-group d-block col">
+                <label for="novoItemDesconto">Desconto</label>
+                <input type="number" class="form-control" id="novoItemDesconto" name="novoItemDesconto" step="any"
+                       ng-model="novoItem.desconto" placeholder="Desconto">
+            </div>
+
+            <div class="form-group d-block col">
+                <label for="novoItemTotal">Total</label>
+                <input type="number" id="novoItemTotal" class="form-control" name="novoItemTotal" step="any"
+                       ng-model="novoItem.total" placeholder="Total" readonly>
+            </div>
+
+        </div>
+    </form>
+
+</div>
+
+
+<div class="mt-2 pr-3">
+    <button class="btn float-right ml-2 btn-danger">Cancelar</button>
+    <button class="btn float-right blue col-2" type="submit">Salvar</button>
+    <span class="float-right mr-2 invalid" ng-show="formularioInvalido">Dados incorreto(s)</span>
+</div>
+
+</div>
